@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    params.permit!
     @post = Post.find(params[:id])
     @post.update(post_params(:title))
     redirect_to post_path(@post)
